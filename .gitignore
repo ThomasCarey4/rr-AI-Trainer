@@ -1,0 +1,5 @@
+.venv
+.venv-old
+.direnv
+fine-tuned-model*
+__pycache__
