@@ -33,9 +33,6 @@ Follow these steps to generate book recommendations:
    ```
 
 5. **Get Recommendations**  
-   Use `recommend.py` to generate book recommendations:
-   ```bash
-   python recommend.py
-   ```
+   Use `recommend.py` to generate book recommendations, you will have to manually call the function.
 
    Optionally, the repository is configured to support running `host_model.py` with FastAPI for serving the model via an API.
