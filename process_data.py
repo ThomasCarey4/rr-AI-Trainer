@@ -7,6 +7,7 @@ import torch
 import re
 
 MODEL_NAME = 'sentence-transformers/all-mpnet-base-v2'  # Base model
+NUMBER_OF_BOOKS = 2048  # Number of books to process
 
 def preprocess_book(entry):
     """Enhanced preprocessing with tag normalization"""
@@ -24,7 +25,7 @@ def process_data(input_file='../scraped_output2.txt', output_index='book_index2.
     # Load and parse data
     with open(input_file) as f:
         soup = BeautifulSoup(f.read(), 'html.parser')
-        books = [preprocess_book(entry) for entry in soup.find_all('entry')[:2048]]
+        books = [preprocess_book(entry) for entry in soup.find_all('entry')[:NUMBER_OF_BOOKS]]
     # Initialize model
     device = 'cpu' if torch.cuda.is_available() else 'cpu'
     print(device)

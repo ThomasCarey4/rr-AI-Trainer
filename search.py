@@ -3,8 +3,9 @@ from bs4 import BeautifulSoup
 
 links = []
 base_url = "https://www.royalroad.com/fictions/best-rated?page="
+NUMBER_OF_PAGES = 500
 
-for page in range(1, 501):
+for page in range(1, NUMBER_OF_PAGES + 1):
     url = base_url + str(page)
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')

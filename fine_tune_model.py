@@ -8,7 +8,7 @@ torch.cuda.is_available = lambda: False
 device = 'cpu'
 
 MODEL_NAME = 'sentence-transformers/all-mpnet-base-v2'  # Base model
-
+NUMBER_OF_BOOKS = 96 # Number of books to process
 
 def load_training_data(metadata_file='book_metadata2.json'):
     with open(metadata_file) as f:
@@ -30,7 +30,7 @@ def fine_tune_model():
     count = 0
     for blurb, tags in load_training_data():
         count += 1
-        if count >= 96:
+        if count >= NUMBER_OF_BOOKS:
             break
         # Create positive pairs
         for tag in tags:
